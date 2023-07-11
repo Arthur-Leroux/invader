@@ -44,3 +44,28 @@ pixelElements.forEach((pixelElement) => {
     pixelElement.classList.toggle(`dark`);
   });
 });
+
+//PARTIE 3
+
+//créer le formulaire
+
+const formHTML = 
+`<input placeholder ="Taille de  la grille" id="grid-size">
+<input type="submit" value="Valider">`;
+const formElement = document.querySelector("form.configuration");
+
+formElement.insertAdjacentHTML('beforeend',formHTML);
+//on a besoin d'écouter le click sur le bouton valider 
+//et on a besoin d'écouter le ENTER sur la touche du clavier 
+//Pour cela on écoute le SUBMIT du form
+
+
+formElement.addEventListener(`submit`,(event)=>{
+  event.preventDefault(); //on prévient du rechargement automatique de la page
+  const inputElement = document.querySelector('#grid-size');  // je sélectionne mon input en hard-codant une div
+  //on récupere la valeur rentrer par l'utilisateur
+  const gridZise = inputElement.valueAsNumber; //valueAsNumber pas besoin de parseInt
+  
+})
+
+
