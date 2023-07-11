@@ -34,19 +34,23 @@ for (let i = 0; i < number; i++) {
 }
 displayGridSize(8);
 
+
+function bindPixelClick(){
 //PARTIE 2
 // exercice sur une boucle forEach
 //je selectionne tout mes pixels
 const pixelElements = document.querySelectorAll(`.pixel`);
 // je selectionne tout mes pixels et je boucle sur chaque pixel
 pixelElements.forEach((pixelElement) => {
+    //console.log(pixelElement)
     //pour chaque pixel je mes un écouteur 'click' 
   pixelElement.addEventListener(`click`, function () {
     //a chaque 'click' je change la class soit '.pixel' soit '.pixel.dark'
     pixelElement.classList.toggle(`dark`);
   });
 });
-
+}
+bindPixelClick();
 //PARTIE 3
 
 //créer le formulaire
@@ -70,6 +74,7 @@ formElement.addEventListener(`submit`,(event)=>{
     const invaderelement = document.getElementById(`invader`);
     invaderelement.innerHTML="";
     displayGridSize(gridZise);
+    bindPixelClick();
 
 })
 
