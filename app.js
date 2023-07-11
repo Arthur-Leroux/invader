@@ -9,9 +9,10 @@
 // on l'insere dans row
 //=================================
 //selectionne la première balise avec l'ID #invader
+function displayGridSize(number){
 const invaderElement = document.querySelector(`#invader`); 
 //on boucle sur les lignes 8 fois 
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < number; i++) {
     //8 fois je créer une div 
   const rowElement = document.createElement(`div`);
   //8 fois je lui ajoute la class 'row'
@@ -20,7 +21,7 @@ for (let i = 0; i < 8; i++) {
   invaderElement.appendChild(rowElement);
 
   //on boucle sur les pixel 8 fois
-  for (let j = 0; j < 8; j++) {
+  for (let j = 0; j < number; j++) {
     //8 fois je créer une div
     let pixelElement = document.createElement(`div`);
     //8 fois je lui ajoute la class 'pixel'
@@ -30,7 +31,8 @@ for (let i = 0; i < 8; i++) {
     // console.log(pixelElement);
   }
 }
-
+}
+displayGridSize(8);
 
 //PARTIE 2
 // exercice sur une boucle forEach
@@ -64,8 +66,11 @@ formElement.addEventListener(`submit`,(event)=>{
   event.preventDefault(); //on prévient du rechargement automatique de la page
   const inputElement = document.querySelector('#grid-size');  // je sélectionne mon input en hard-codant une div
   //on récupere la valeur rentrer par l'utilisateur
-  const gridZise = inputElement.valueAsNumber; //valueAsNumber pas besoin de parseInt
-  
+  const gridZise = parseInt(inputElement.value); //valueAsNumber pas besoin de parseInt
+    const invaderelement = document.getElementById(`invader`);
+    invaderelement.innerHTML="";
+    displayGridSize(gridZise);
+
 })
 
 
